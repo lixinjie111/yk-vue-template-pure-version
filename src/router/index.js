@@ -69,7 +69,17 @@ export const menuRouterMap = [
             //                 "enable": "Y"
             //             },
             //             "children": [],
-            //         }
+            //         }，{
+                    //     "name": "MenuOneAdd",
+                    //     "path": "/menu1/add",
+                    //     "component": MenuOneAdd,
+                    //     "meta": {
+                    //         "title": "menu--1--add",
+                    //         "enable": "N",      //----------enable控制在菜单栏中是否显示
+                    //         "active": "MenuOneList"  //----------action二级菜单中子页面指向的父级
+                    //     },
+                    //     "children": [],
+                    // }
             //     ]
             // }
 		]

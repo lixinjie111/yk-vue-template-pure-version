@@ -5,7 +5,7 @@ import Qs from 'qs'
 // axios.defaults.withCredentials = true;
 Vue.prototype.$http = axios;
 // 权限
-import { removeAuthInfo } from '@/cookie/index';
+import { removeAuthInfo } from '@/session/index';
 
 // 避免在账号登录失效后提示多次
 let isOutLogin = true;

@@ -25,7 +25,7 @@
 
 <script>
 import { requestPasswd } from "@/api/login"
-import { removeAuthInfo } from '@/cookie/index';
+import { removeAuthInfo } from '@/session/index';
 export default {
     name: "resetPassword",
     data() {

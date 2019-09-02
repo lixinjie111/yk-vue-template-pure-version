@@ -35,13 +35,13 @@ import SearchFilter from '@/assets/js/module/searchFilter.js'
 Vue.prototype.$searchFilter = SearchFilter;
 
 // 权限
-import { setAuthInfo, getAdminId, getAuthInfo, removeAuthInfo } from '@/cookie/index';
+import { setAuthInfo, getAdminId, getAuthInfo, removeAuthInfo } from '@/session/index';
 // 在免登录白名单，直接进入
 const whiteList = ['/login','/404'];
-setAuthInfo({
-    userNo: "********",
-    id: "********"
-});
+// setAuthInfo({
+//     userNo: "********",
+//     id: "********"
+// });
 // removeAuthInfo();
 // router global config
 router.beforeEach((to,from,next) => {
