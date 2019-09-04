@@ -102,9 +102,12 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/theme.scss";
 #login-warpper {
+    font-family: MicrosoftYaHei;
     position: relative;
     height: 100%;
     background-color: #f2f2f2;
+    letter-spacing: 2px;
+    line-height: 40px;
     .login-logo {
         position: absolute;
         left: 49px;
@@ -184,7 +187,6 @@ export default {
         background-color: #3293bd;
         border-radius: 10px;
         font-size: 18px;
-        // letter-spacing: 7px;
         color: #fff;
         border: none;
         margin-top: 30px;
@@ -194,6 +196,9 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/theme.scss";
 .login-item-box {
+    .el-form-item {
+        margin-right: 0 !important;
+    }
     .el-form-item__label {
         position: relative;
         color: #999;
@@ -211,16 +216,24 @@ export default {
         }
     }
     .el-input__inner {
+        font-size: 14px;
         background: transparent;        
-        border: none;
+        border: none !important;
         height: 50px;
         padding: 0 21px;
         @include layoutMode(pack);
         color: #333 !important;
+        width: 100% !important;
     }
     input:-webkit-autofill {
         -webkit-box-shadow: 0 0 0px 1000px white inset;
         -webkit-text-fill-color: #333;
+    }
+    .el-button{
+        i, span{
+            line-height: 0;
+            vertical-align: middle;
+        }
     }
 }
 </style>
