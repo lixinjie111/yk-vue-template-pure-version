@@ -100,7 +100,12 @@ export default {
 
                     requestPasswd(this.formParams).then(res => {
                         this.submitloading = false;
-                        this.$message.success(res.message);
+                        this.$message({
+                            type: 'success',
+                            duration: '1500',
+                            message: res.message,
+                            showClose: true
+                        });
                         removeAuthInfo();
                         localStorage.removeItem("yk-token");
                         this.$router.push({ path: '/login' });
