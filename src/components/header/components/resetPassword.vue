@@ -7,13 +7,13 @@
         width="30%">
         <el-form ref="dialogForm" :model="formParams" :rules="rules" size="small" label-position="right" label-width="120px">
             <el-form-item label="原密码:" prop='password'>
-                <el-input v-model.trim="formParams.password"></el-input>
+                <el-input type="password" auto-complete="old-passwork" v-model.trim="formParams.password"></el-input>
             </el-form-item>
             <el-form-item label="新密码:" prop='newpassword'>
-                <el-input v-model.trim="formParams.newpassword"></el-input>
+                <el-input type="password" auto-complete="new-passwork" v-model.trim="formParams.newpassword"></el-input>
             </el-form-item>
             <el-form-item label="重复密码:" prop='confirmpassword'>
-                <el-input v-model.trim="formParams.confirmpassword"></el-input>
+                <el-input type="password" auto-complete="confirm-passwork" v-model.trim="formParams.confirmpassword"></el-input>
             </el-form-item>
         </el-form>
         <div class="c-text-center">
@@ -100,11 +100,10 @@ export default {
 
                     requestPasswd(this.formParams).then(res => {
                         this.submitloading = false;
-                        this.$message.success("修改密码成功");
+                        this.$message.success(res.message);
                         removeAuthInfo();
-                        this.$router.push({
-                            path: '/login'
-                        });
+                        localStorage.removeItem("yk-token");
+                        this.$router.push({ path: '/login' });
                     }).catch(err => {
                         this.submitloading = false;
                     });

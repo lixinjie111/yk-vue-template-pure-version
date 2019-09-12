@@ -23,6 +23,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex';
+import { removeAuthInfo } from '@/session/index';
 import DialogResetPassword from "./components/resetPassword.vue";
 export default {
     name: "HeaderBar",
@@ -43,6 +44,8 @@ export default {
             }).then(() => {
                 this.goLogOut().then(res => {
                     this.$message.success(res.message);
+                    removeAuthInfo();
+                    localStorage.removeItem("yk-token");
                     this.$router.push({ path: '/login' });
                 });
             }).catch(err => {
