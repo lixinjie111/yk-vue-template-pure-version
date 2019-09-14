@@ -45,9 +45,8 @@
 
         <section class="content-container">
             <el-breadcrumb class="c-title" separator-class="el-icon-arrow-right" v-if="$route.meta.enable == 'Y' && $route.meta.title != '首页'">
-                <el-breadcrumb-item class="c-title-item" v-for="(item, index) in realBreadlist" :key="item.meta.title" :to="index ? item.path : ''">
-                    {{item.meta.title}}
-                </el-breadcrumb-item>
+                <!-- <el-breadcrumb-item class="c-title-item" v-for="(item, index) in realBreadlist" :key="item.meta.title" :to="index ? item.path : ''">{{item.meta.title}}</el-breadcrumb-item> -->
+                <el-breadcrumb-item class="c-title-item">{{realBreadlist[realBreadlist.length-1].meta.title}}</el-breadcrumb-item>
             </el-breadcrumb>
             <section class="c-content-wrapper" :class="($route.meta.enable == 'Y' && $route.meta.title != '首页') ? 'c-content-wrapper-inner' : ''">
                 <div class="c-scroll-wrap" ref="scorllWrap">
