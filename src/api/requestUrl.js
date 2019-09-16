@@ -1,5 +1,3 @@
-// 引入全局配置文件
-// import '../../static/config/config.js';
 
 let HTTPURL = '';
 let OPERATEURL = '';
