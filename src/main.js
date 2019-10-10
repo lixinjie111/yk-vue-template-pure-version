@@ -1,14 +1,14 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue';
+// import Vue from 'vue';  //加载优化
 import App from './App';
 import router from './router';
 import store from './store';
 
 // Element-ui
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+// import ElementUI from 'element-ui';  //加载优化
+// import 'element-ui/lib/theme-chalk/index.css';  //加载优化
+// Vue.use(ElementUI);  //加载优化
 
 // 进度条
 import NProgress from 'nprogress';
@@ -24,15 +24,15 @@ import '@/assets/scss/reset.scss';
 import '@/assets/scss/public.scss';
 import '@/assets/scss/element-ui-reset.scss';
 import '@/assets/icon-font/iconfont.css';
-import '@/assets/icon-font/iconfont.js';
+// import '@/assets/icon-font/iconfont.js';  //不需要
 
-// 时间转换
-import TDate from '@/assets/js/utils/date.js'
-Vue.prototype.$dateUtil = TDate;
+// 时间转换--组件内各自引用
+// import TDate from '@/assets/js/utils/date.js'  //加载优化
+// Vue.prototype.$dateUtil = TDate;  //加载优化
 
-// 模糊查询封装
-import SearchFilter from '@/assets/js/module/searchFilter.js'
-Vue.prototype.$searchFilter = SearchFilter;
+// 模糊查询封装--组件内各自引用
+// import SearchFilter from '@/assets/js/module/searchFilter.js'
+// Vue.prototype.$searchFilter = SearchFilter;
 
 // 权限
 import { setAuthInfo, getAdminId, getAuthInfo, removeAuthInfo } from '@/session/index';

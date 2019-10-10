@@ -22,6 +22,14 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  // 加载优化
+  externals:{
+    'vue':'Vue',
+    'vue-router':'VueRouter',
+    'vuex':'Vuex',
+    'axios':'axios',
+    'element-ui':'ELEMENT'
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

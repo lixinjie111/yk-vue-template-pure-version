@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import axios from 'axios';
+// import Vue from 'vue';  //加载优化
+// import axios from 'axios';  //加载优化
 import Qs from 'qs'
 
 // axios.defaults.withCredentials = true;
-Vue.prototype.$http = axios;
+// Vue.prototype.$http = axios;  //加载优化
 // 权限
 import { removeAuthInfo } from '@/session/index';
 

@@ -1,5 +1,6 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+// import Vue from 'vue'  //加载优化
+// import VueRouter from 'vue-router'  //加载优化
+// Vue.use(VueRouter)  //加载优化
 
 // 不在菜单导航里的路由
 const Login = resolve => require(['@/views/login/index'], resolve)
@@ -17,11 +18,6 @@ const Refresh = resolve => require(['@/views/refresh'], resolve)
 // 在菜单导航里的路由
 // 首页
 const Index = resolve => require(['@/views/index/index'], resolve)
-// 菜单1
-
-
-
-Vue.use(Router)
 
 // 不在菜单导航里的路由
 export const publicRouterMap = [
@@ -86,7 +82,7 @@ export const menuRouterMap = [
 	}
 ];
 
-export default new Router({
+export default new VueRouter({
   // mode: 'history',
   routes: [
   	...publicRouterMap,
