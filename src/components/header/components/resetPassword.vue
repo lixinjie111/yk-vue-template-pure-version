@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import { Base64 } from 'js-base64';
 import { requestPasswd } from "@/api/login"
 import { removeAuthInfo } from '@/session/index';
 export default {
@@ -97,7 +98,12 @@ export default {
                 if (valid) {
                     // 正则校验
                     this.submitloading = true;
-
+                    let _param = Object.assign({}, this.formParams, {
+                        password: Base64.encode(this.formParams.password),
+                        newpassword: Base64.encode(this.formParams.newpassword),
+                        confirmpassword: Base64.encode(this.formParams.confirmpassword)
+                    });
+                    // requestPasswd(_param).then(res => {
                     requestPasswd(this.formParams).then(res => {
                         this.submitloading = false;
                         this.$message({
