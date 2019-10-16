@@ -6,9 +6,9 @@ import router from './router';
 import store from './store';
 
 // Element-ui
-// import ElementUI from 'element-ui';  //加载优化
-// import 'element-ui/lib/theme-chalk/index.css';  //加载优化
-// Vue.use(ElementUI);  //加载优化
+import ElementUI from 'element-ui';  //加载优化
+import 'element-ui/lib/theme-chalk/index.css';  //加载优化
+Vue.use(ElementUI);  //加载优化
 
 // 进度条
 import NProgress from 'nprogress';
