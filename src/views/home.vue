@@ -179,7 +179,7 @@ export default {
             background-color: transparent;
         }
         &.is-active {
-            color:#999 !important;
+            color: #f59307 !important;
             background: #32373c;
             border-bottom-color: #586069;
         }
@@ -199,7 +199,7 @@ export default {
                 line-height: 36px;
                 border: none;
                 &.is-active {
-                    color: #f59307;
+                    color: #f59307 !important;
                     &:after {
                         content: "";
                         position: absolute;
