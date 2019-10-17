@@ -179,6 +179,7 @@ export default {
             background-color: transparent;
         }
         &.is-active {
+            color:#999 !important;
             background: #32373c;
             border-bottom-color: #586069;
         }
