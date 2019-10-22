@@ -30,10 +30,6 @@ import '@/assets/icon-font/iconfont.css';
 // import TDate from '@/assets/js/utils/date.js'  //加载优化
 // Vue.prototype.$dateUtil = TDate;  //加载优化
 
-// 模糊查询封装--组件内各自引用
-// import SearchFilter from '@/assets/js/module/searchFilter.js'
-// Vue.prototype.$searchFilter = SearchFilter;
-
 // 权限
 import { setAuthInfo, getAdminId, getAuthInfo, removeAuthInfo } from '@/session/index';
 // 在免登录白名单，直接进入
