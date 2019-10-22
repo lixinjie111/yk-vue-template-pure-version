@@ -8,6 +8,7 @@ const admin = {
 		adminId: '',
 		adminName: '',
 		platform: "20000",
+		ver: "v1.0",
         operations:[],
         token:''
 	},

@@ -6,6 +6,7 @@ import Qs from 'qs'
 // Vue.prototype.$http = axios;  //加载优化
 // 权限
 import { removeAuthInfo } from '@/session/index';
+import store from '../store/index';
 
 // 避免在账号登录失效后提示多次
 let isOutLogin = true;
@@ -35,14 +36,34 @@ function axiosFilter(vm) {
     // request 添加响应拦截器 
     // axios.interceptors.request.use(
     //     config => {
-    //         if (config.method === 'post') {
-    //             config.data = Qs.stringify(config.data)
+    //         if (config.method == 'post') {
+    //             config.data = {
+    //                 data: {
+    //                     ...config.data,
+    //                 },
+    //                 timestamp: Date.parse(new Date()) / 1000,
+    //                 token: store.state.admin.token,
+    //                 appCode: store.state.admin.platform,
+    //                 ver: store.state.admin.ver,
+    //                 appType: ""
+    //             }
+    //         } else if (config.method == 'get') {
+    //             config.params = {
+    //                 data: {
+    //                     ...config.params,
+    //                 },
+    //                 timestamp: Date.parse(new Date()) / 1000,
+    //                 token: store.state.admin.token,
+    //                 appCode: store.state.admin.platform,
+    //                 ver: store.state.admin.ver,
+    //                 appType: ""
+    //             }
     //         }
+    //         config.data = Qs.stringify(config.data);
     //         return config
     //     },
-    //     error => {
-    //         console.log(error)
-    //         Promise.reject(error)
+    //     function(error) {
+    //         return Promise.reject(error)
     //     }
     // )
     
