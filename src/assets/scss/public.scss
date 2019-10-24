@@ -147,6 +147,19 @@
 .c-font-16 {
 	font-size: 16px !important;
 }
+//外壳 间距统
+.c-wrapper-10 {
+	margin: 10px;
+}
+.c-wrapper-20 {
+	margin: 20px;
+}
+.c-padding-10 {
+	padding: 10px;
+}
+.c-padding-20 {
+	padding: 20px;
+}
 //间距
 .c-ml-10 {
 	margin-left: 10px;
@@ -205,19 +218,6 @@
 }
 .c-border-bottom {
 	border-bottom: 1px solid $borderColor;
-}
-//外壳 间距统
-.c-wrapper-10 {
-	margin: 10px;
-}
-.c-wrapper-20 {
-	margin: 20px;
-}
-.c-padding-10 {
-	padding: 10px;
-}
-.c-padding-20 {
-	padding: 20px;
 }
 
 .c-width-precent-30 {
