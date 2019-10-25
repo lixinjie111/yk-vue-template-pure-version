@@ -10,7 +10,8 @@ const admin = {
 		platform: "20000",
 		ver: "v1.0",
         operations:[],
-        token:''
+		token:'',
+		appType:''
 	},
 	mutations: {
 		SET_LOGIN_INFO:(state, loginInfo) => {
