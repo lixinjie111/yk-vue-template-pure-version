@@ -80,29 +80,6 @@ class TDate {
         var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0
         return y+"-"+m+"-"+d + " " + dd.getHours() + ":" + dd.getMinutes() + ":" + dd.getSeconds(); 
     }
-    static weekday(val){
-        var mydate=new Date(val);
-        var myddy=mydate.getDay();//获取存储当前日期
-        var weekday=["周日","周一","周二","周三","周四","周五","周六"];
-        return weekday[myddy];
-    }
-    static getDay(begin, end) {
-　　　　var arr = [];
-　　　　var beginArr = begin.split("-");
-　　　　var endArr = end.split("-");
-　　　　var db = new Date();
-　　　　db.setUTCFullYear(beginArr[0], beginArr[1] - 1, beginArr[2]);
-　　　　var de = new Date();
-　　　　de.setUTCFullYear(endArr[0], endArr[1] - 1, endArr[2]);
-            console.log(db,de);
-　　　　var startTime = db.getTime() - 24 * 60 * 60 * 1000;
-　　　　var endTime = de.getTime() - 24 * 60 * 60 * 1000;
-　　　　for (var k = startTime; k <= endTime;) {
-    　　　　　　k = k + 24 * 60 * 60 * 1000;
-    　　　　　　arr.push([TDate.formatTime(new Date(parseInt(k)),'yy-mm-dd'),TDate.weekday(parseInt(k))]);
-　　　　}
-　　　　return arr;
-    }
     // static formatTime(value){
     //     if(value == ''){
     //         return;

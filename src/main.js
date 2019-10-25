@@ -27,8 +27,8 @@ import '@/assets/icon-font/iconfont.css';
 // import '@/assets/icon-font/iconfont.js';  //不需要
 
 // 时间转换--组件内各自引用
-import TDate from '@/assets/js/utils/date.js'  //加载优化
-Vue.prototype.$dateUtil = TDate;  //加载优化
+// import TDate from '@/assets/js/utils/date.js'  //加载优化
+// Vue.prototype.$dateUtil = TDate;  //加载优化
 
 // 权限
 import { setAuthInfo, getAdminId, getAuthInfo, removeAuthInfo } from '@/session/index';

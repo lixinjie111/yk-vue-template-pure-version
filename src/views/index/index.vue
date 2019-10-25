@@ -2,7 +2,7 @@
     <!-- <div class="c-wrapper-20"> -->
         <div class="index-logo-wrap">
             <img class="index-logo" src="static/images/banner.png">
-            <p class="index-text">任务管理系统</p>
+            <p class="index-text">智能网联汽车运营管理平台</p>
         </div>
     <!-- </div> -->
 </template>
