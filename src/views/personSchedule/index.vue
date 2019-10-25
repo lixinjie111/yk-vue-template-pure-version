@@ -1,14 +1,14 @@
 <template>
     <div class="c-wrapper-20" v-cloak>
         <el-form ref="searchForm" :inline="true" :model="searchKey" :rules="rules" size="small">
-            <el-form-item label="所属项目" prop='status'>
-                <el-select v-model.trim="searchKey.status">
+            <el-form-item label="所属项目" prop='projectId'>
+                <el-select v-model.trim="searchKey.projectId">
                     <el-option label="锁定" value="0"></el-option>
                     <el-option label="正常" value="1"></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="人员" prop='name'>
-                <el-input v-model.trim="searchKey.name"></el-input>
+            <el-form-item label="人员" prop='personalName'>
+                <el-input v-model.trim="searchKey.personalName"></el-input>
             </el-form-item>
             <el-form-item label="状态" prop='status'>
                 <el-select v-model.trim="searchKey.status">
@@ -16,9 +16,9 @@
                     <el-option label="正常" value="1"></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="开始结束日期" prop='startTime'>
+            <el-form-item label="开始结束日期" prop='startDate'>
                 <el-date-picker
-                    v-model.trim="searchKey.startTime"
+                    v-model.trim="searchKey.startDate"
                     type="daterange"
                     :picker-options="timeOption"
                     start-placeholder="开始日期"
@@ -38,12 +38,14 @@
             border
             max-height="724">
             <el-table-column label="编号" type="index" :index="indexMethod"></el-table-column>
-            <el-table-column min-width="100" label="人员" prop="serialNum"></el-table-column>
-            <el-table-column min-width="100" label="项目" prop="fileName"></el-table-column>
-            <el-table-column min-width="200" label="任务名称" prop="serialNum"></el-table-column>
-            <el-table-column min-width="100" label="状态" prop="fileName"></el-table-column>
-            <el-table-column min-width="150" :label="item"   v-for="(item,index) in dateArr" :key="index">
-                 <template slot-scope="scope"><div class="schedule">dfsd</div><div class="actual">dfsd2222223</div></template>
+            <el-table-column min-width="100" label="人员" prop="personalName"></el-table-column>
+            <el-table-column min-width="200" label="项目" prop="projectName"></el-table-column>
+            <el-table-column min-width="200" label="任务名称" prop="taskName"></el-table-column>
+            <el-table-column min-width="100" label="状态" prop="stateName"></el-table-column>
+            <el-table-column min-width="150" :label="item[0]+' '+item[1]"   v-for="(item,index) in dateArr" :key="index">
+                 <template slot-scope="scope">
+                     <div class="schedule" v-if="$dateUtil.dateToMs(item[0])>=$dateUtil.dateToMs(scope.row.expectStartDate)&&$dateUtil.dateToMs(item[0])<=$dateUtil.dateToMs(scope.row.expectEndDate)">计划时间</div>
+                     <div class="actual" v-if="$dateUtil.dateToMs(item[0])>=$dateUtil.dateToMs(scope.row.realStartDate)&&$dateUtil.dateToMs(item[0])<=$dateUtil.dateToMs(scope.row.realEndDate)">实际时间</div></template>
             </el-table-column>
         </el-table>
         <!-- 分页 -->
@@ -57,6 +59,9 @@ export default {
     components: {
         Pagination,
     },
+    filters:{
+       
+    },
     data () {
         return {
             dialogAddFlag:false,
@@ -67,33 +72,85 @@ export default {
                 total: 0,
                 page: 1     //从1开始
             },
-             listData: [
-            {
-                endTime: 1562860724413,
-                plateNo: "沪A923456",
-                routeId: "B21E-00-024",
-                startTime: 1562809632481,
-                lock:'1'
-            },{
-                endTime: 1562860726413,
-                plateNo: "沪A923456",
-                routeId: "B21E-00-024",
-                startTime: 1562860724413
-            },{},{},{},{},{},{},{},{},
-            {
-                endTime: 1562860724413,
-                plateNo: "沪A923456",
-                routeId: "B21E-00-024",
-                startTime: 1562809632481
-            },{
-                endTime: 1562860726413,
-                plateNo: "沪A923456",
-                routeId: "B21E-00-024",
-                startTime: 1562860724413
-            },{},{},{},{}],
+            listData: [{
+                "personalName": "张三",
+                "id": 1,
+                "taskCode": 1,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-12",
+                "expectEndDate": "2019-10-15",
+                "realStartDate": "2019-08-05",
+                "realEndDate": "2019-08-10",
+                "rate": 80,
+                "stateName": "未分派"
+
+              },{
+                "personalName": "张三",
+                "id": 2,
+                "taskCode": 2,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-10",
+                "expectEndDate": "2019-10-12",
+                "realStartDate": "2019-08-06",
+                "realEndDate": "2019-08-12",
+                "rate": 80,
+                "stateName": "已完成"
+              },{
+                "personalName": "张三",
+                "id": 2,
+                "taskCode": 2,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-10",
+                "expectEndDate": "2019-10-12",
+                "realStartDate": "2019-08-06",
+                "realEndDate": "2019-08-12",
+                "rate": 80,
+                "stateName": "已完成"
+              },{
+                "personalName": "张三",
+                "id": 2,
+                "taskCode": 2,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-10",
+                "expectEndDate": "2019-10-12",
+                "realStartDate": "2019-08-06",
+                "realEndDate": "2019-08-12",
+                "rate": 80,
+                "stateName": "已完成"
+              },{
+                "personalName": "张三",
+                "id": 2,
+                "taskCode": 2,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-10",
+                "expectEndDate": "2019-10-12",
+                "realStartDate": "2019-08-06",
+                "realEndDate": "2019-08-12",
+                "rate": 80,
+                "stateName": "已完成"
+              },{
+                "personalName": "张三",
+                "id": 2,
+                "taskCode": 2,
+                "taskName": "任务管理系统-任务接口",
+                "projectName": "任务管理项目",
+                "expectStartDate": "2019-10-10",
+                "expectEndDate": "2019-10-12",
+                "realStartDate": "2019-08-06",
+                "realEndDate": "2019-08-12",
+                "rate": 80,
+                "stateName": "已完成"
+              },{},{},{},{},{},{},{},{},{},{},{},{},{},{}
+
+],
             searchKey: {
-                startTime: [this.$dateUtil.GetDateStr(15), this.$dateUtil.getNowFormatDate()],
-                endTime: [this.$dateUtil.GetDateStr(15), this.$dateUtil.getNowFormatDate()],
+                startDate: [this.$dateUtil.GetDateStr(15), this.$dateUtil.getNowFormatDate()],
+                // endDate: [this.$dateUtil.GetDateStr(15), this.$dateUtil.getNowFormatDate()],
             },
             historySearchKey: {},
             dialogData:{
@@ -175,10 +232,10 @@ export default {
                 if (valid) {
                     this.searchloading = true;
                     this.historySearchKey = this.searchKey;
-                    this.dateArr=this.$dateUtil.getAll('2019-8-5','2019-10-15');
-                    console.log(this.dateArr)
-                    //this.initPageOption();
-                   // this.initData();
+                    this.dateArr=this.$dateUtil.getDay(this.historySearchKey.startDate[0],this.historySearchKey.startDate[1]);
+                    console.log(this.historySearchKey)
+                    this.initPageOption();
+                   this.initData();
                 } else {
                     return false;
                 }

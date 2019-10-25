@@ -80,21 +80,26 @@ class TDate {
         var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0
         return y+"-"+m+"-"+d + " " + dd.getHours() + ":" + dd.getMinutes() + ":" + dd.getSeconds(); 
     }
-    static getAll(begin, end) {
+    static weekday(val){
+        var mydate=new Date(val);
+        var myddy=mydate.getDay();//获取存储当前日期
+        var weekday=["周日","周一","周二","周三","周四","周五","周六"];
+        return weekday[myddy];
+    }
+    static getDay(begin, end) {
 　　　　var arr = [];
-　　　　var ab = begin.split("-");
-　　　　var ae = end.split("-");
+　　　　var beginArr = begin.split("-");
+　　　　var endArr = end.split("-");
 　　　　var db = new Date();
-　　　　db.setUTCFullYear(ab[0], ab[1] - 1, ab[2]);
+　　　　db.setUTCFullYear(beginArr[0], beginArr[1] - 1, beginArr[2]);
 　　　　var de = new Date();
-　　　　de.setUTCFullYear(ae[0], ae[1] - 1, ae[2]);
+　　　　de.setUTCFullYear(endArr[0], endArr[1] - 1, endArr[2]);
             console.log(db,de);
-　　　　var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
-　　　　var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
-　　　　for (var k = unixDb; k <= unixDe;) {
-    　　　　　　//console.log((new Date(parseInt(k))).format());
+　　　　var startTime = db.getTime() - 24 * 60 * 60 * 1000;
+　　　　var endTime = de.getTime() - 24 * 60 * 60 * 1000;
+　　　　for (var k = startTime; k <= endTime;) {
     　　　　　　k = k + 24 * 60 * 60 * 1000;
-    　　　　　　arr.push(TDate.formatTime(new Date(parseInt(k)),'yy-mm-dd'));
+    　　　　　　arr.push([TDate.formatTime(new Date(parseInt(k)),'yy-mm-dd'),TDate.weekday(parseInt(k))]);
 　　　　}
 　　　　return arr;
     }
