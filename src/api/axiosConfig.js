@@ -44,7 +44,7 @@ function axiosFilter(vm) {
     //                 timestamp: Date.parse(new Date()) / 1000,
     //                 token: store.state.admin.token,
     //                 appCode: store.state.admin.platform,
-    //                 version: store.state.admin.version,
+    //                 ver: store.state.admin.ver,
     //                 appType: ""
     //             }
     //         } else if (config.method == 'get') {
@@ -55,7 +55,7 @@ function axiosFilter(vm) {
     //                 timestamp: Date.parse(new Date()) / 1000,
     //                 token: store.state.admin.token,
     //                 appCode: store.state.admin.platform,
-    //                 version: store.state.admin.version,
+    //                 ver: store.state.admin.ver,
     //                 appType: ""
     //             }
     //         }
