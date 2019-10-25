@@ -87,9 +87,11 @@
 	[class^=el-icon-] {
 		font-size: 18px;
 		vertical-align: middle;
+		line-height: 0;
 	}
 	span {
 		vertical-align: middle;
+		line-height: 0;
 	}
 	&.el-button--mini, 
 	&.el-button--small {
