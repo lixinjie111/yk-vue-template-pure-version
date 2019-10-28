@@ -33,7 +33,6 @@
 </template>
 
 <script>
-// import { Base64 } from 'js-base64';
 import md5 from 'js-md5'
 import { mapActions } from 'vuex';
 import { removeAuthInfo } from '@/session/index';
@@ -99,11 +98,10 @@ export default {
                 if (valid) {
                     this.loading = true;
                     let _param = Object.assign({}, this.loginForm, {
-                        // password: Base64.encode(this.loginForm.password)
                         password: md5(this.loginForm.password)
                     });
-                    // this.loginFunc(_param);
-                    this.loginFunc(this.loginForm);
+                    this.loginFunc(_param);
+                    // this.loginFunc(this.loginForm);
                 } else {
                     this.loading = false;
                     return false;

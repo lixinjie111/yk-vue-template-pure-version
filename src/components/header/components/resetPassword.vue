@@ -24,7 +24,6 @@
 </template>
 
 <script>
-// import { Base64 } from 'js-base64';
 import md5 from 'js-md5'
 import { requestPasswd } from "@/api/login"
 import { removeAuthInfo } from '@/session/index';
@@ -100,15 +99,12 @@ export default {
                     // 正则校验
                     this.submitloading = true;
                     let _param = Object.assign({}, this.formParams, {
-                        // password: Base64.encode(this.formParams.password),
-                        // newpassword: Base64.encode(this.formParams.newpassword),
-                        // confirmpassword: Base64.encode(this.formParams.confirmpassword)
                         password: md5(this.formParams.password),
                         newpassword: md5(this.formParams.newpassword),
                         confirmpassword: md5(this.formParams.confirmpassword)
                     });
-                    // requestPasswd(_param).then(res => {
-                    requestPasswd(this.formParams).then(res => {
+                    requestPasswd(_param).then(res => {
+                    // requestPasswd(this.formParams).then(res => {
                         this.submitloading = false;
                         this.$message({
                             type: 'success',
