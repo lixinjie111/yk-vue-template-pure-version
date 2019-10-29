@@ -113,8 +113,8 @@ export default {
             this.goLogin(params).then(res => {
                 this.loading = false;
                 if(res.status == 200) {
-                    this.$router.push({ path: '/' });
                     localStorage.setItem("yk-token",JSON.stringify({data:JSON.parse(res.data).token,"time":new Date().getTime()}));
+                    this.$router.push({ path: '/' });
                 }else {
                     this.removeStorage();
                 }
