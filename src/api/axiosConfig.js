@@ -59,7 +59,7 @@ function axiosFilter(vm) {
     //                 appType: ""
     //             }
     //         }
-    //         config.data = Qs.stringify(config.data);
+    //         // config.data = Qs.stringify(config.data);
     //         return config
     //     },
     //     function(error) {
