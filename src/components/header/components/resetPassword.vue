@@ -118,21 +118,6 @@ export default {
                     }).catch(err => {
                         this.submitloading = false;
                     });
-
-                    // setTimeout(() => {            // 接口调用
-                    //     this.submitloading = false;
-                    //     // this.$emit("cancleFunc");
-                    //     this.$message({
-                    //         type: 'success',
-                    //         duration: '1500',
-                    //         message: "修改密码成功",
-                    //         showClose: true
-                    //     });
-                    //     this.$router.push({
-                    //         path: '/login'
-                    //     });
-                    // }, 2000);
-
                 } else {
                     return false;
                 }
