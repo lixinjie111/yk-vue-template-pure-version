@@ -43,7 +43,12 @@ export default {
             this.$confirm('确认退出吗?', '提示', {
             }).then(() => {
                 this.goLogOut().then(res => {
-                    this.$message.success(res.message);
+                    this.$message({
+                        type: 'success',
+                        duration: '1500',
+                        message: res.message,
+                        showClose: true
+                    });  
                     removeAuthInfo();
                     localStorage.removeItem("yk-token");
                     this.$router.push({ path: '/login' });
