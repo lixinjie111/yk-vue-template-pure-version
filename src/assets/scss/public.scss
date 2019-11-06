@@ -70,6 +70,12 @@
     background: rgba(0, 0, 0, 0.1);
     // background: rgba(0, 0, 0, 0);
 }
+// 强制折行 
+.c-text-break {
+    text-align: justify;
+    word-wrap: break-word;
+    word-break: normal;
+}
 // global
 .c-text-left {
 	text-align: left;
