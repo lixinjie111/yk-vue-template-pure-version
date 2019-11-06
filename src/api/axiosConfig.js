@@ -38,9 +38,7 @@ function axiosFilter(vm) {
     //     config => {
     //         if (config.method == 'post') {
     //             config.data = {
-    //                 data: {
-    //                     ...config.data,
-    //                 },
+    //                 data: config.data,
     //                 timestamp: Date.parse(new Date()) / 1000,
     //                 token: store.state.admin.token,
     //                 appCode: store.state.admin.platform,
@@ -49,9 +47,7 @@ function axiosFilter(vm) {
     //             }
     //         } else if (config.method == 'get') {
     //             config.params = {
-    //                 data: {
-    //                     ...config.params,
-    //                 },
+    //                 data: config.data,
     //                 timestamp: Date.parse(new Date()) / 1000,
     //                 token: store.state.admin.token,
     //                 appCode: store.state.admin.platform,
