@@ -73,8 +73,9 @@
 // 强制折行 
 .c-text-break {
     text-align: justify;
+    white-space:normal; 
     word-wrap: break-word;
-    word-break: normal;
+    word-break:break-all;
 }
 // global
 .c-text-left {
