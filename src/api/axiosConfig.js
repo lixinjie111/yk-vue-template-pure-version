@@ -100,7 +100,7 @@ function axiosFilter(vm) {
                     message: response.data.message,
                     showClose: true
                 });
-                return Promise.reject(response);
+                return Promise.resolve(response);
             }
         }
     }, function(error) {
