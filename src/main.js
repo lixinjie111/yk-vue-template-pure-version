@@ -40,7 +40,14 @@ const whiteList = ['/login','/404'];
 // });
 // removeAuthInfo();
 // router global config
+
+//取消请求的对象
+window.cancleSource={};
+window.cancelToken = axios.CancelToken;
+
 router.beforeEach((to,from,next) => {
+    window.cancleSource.cancel && window.cancleSource.cancel()
+    window.cancleSource = window.cancelToken.source()
     NProgress.start();
     const ADMINID = getAdminId();
     if(ADMINID) {

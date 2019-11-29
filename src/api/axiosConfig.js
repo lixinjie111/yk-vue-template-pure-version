@@ -33,35 +33,16 @@ function axiosFilter(vm) {
       }]
     });
 
-    // request 添加响应拦截器 
-    // axios.interceptors.request.use(
-    //     config => {
-    //         if (config.method == 'post') {
-    //             config.data = {
-    //                 data: config.data,
-    //                 timestamp: Date.parse(new Date()) / 1000,
-    //                 token: store.state.admin.token,
-    //                 appCode: store.state.admin.platform,
-    //                 version: store.state.admin.version,
-    //                 appType: ""
-    //             }
-    //         } else if (config.method == 'get') {
-    //             config.params = {
-    //                 data: config.data,
-    //                 timestamp: Date.parse(new Date()) / 1000,
-    //                 token: store.state.admin.token,
-    //                 appCode: store.state.admin.platform,
-    //                 version: store.state.admin.version,
-    //                 appType: ""
-    //             }
-    //         }
-    //         // config.data = Qs.stringify(config.data);
-    //         return config
-    //     },
-    //     function(error) {
-    //         return Promise.reject(error)
-    //     }
-    // )
+     // request 添加请求拦截器 
+     axios.interceptors.request.use(
+        config => {
+            config.cancelToken = window.cancleSource.token;
+            return config
+        },
+        function(error) {
+            return Promise.reject(error)
+        }
+    )
     
     // response
     axios.interceptors.response.use(response => {
@@ -101,12 +82,16 @@ function axiosFilter(vm) {
         }
     }, function(error) {
         // vm.$message.error('error!');
-        vm.$message({
-            type: 'error',
-            duration: '1500',
-            message: '网络异常,请稍候重试!',
-            showClose: true
-        });
+        if (axios.isCancel(error)) {
+            console.log("请求被取消"+error); //请求如果被取消，这里是返回取消的message
+        } else {
+            vm.$message({
+                type: 'error',
+                duration: '1500',
+                message: '网络异常,请稍候重试!',
+                showClose: true
+            });
+        }
         return Promise.reject(error);
     });
 }
