@@ -32,7 +32,35 @@ function axiosFilter(vm) {
         return data;
       }]
     });
-
+     // request 添加响应拦截器 
+    // axios.interceptors.request.use(
+    //     config => {
+    //         if (config.method == 'post') {
+    //             config.data = {
+    //                 data: config.data,
+    //                 timestamp: Date.parse(new Date()) / 1000,
+    //                 token: store.state.admin.token,
+    //                 appCode: store.state.admin.platform,
+    //                 version: store.state.admin.version,
+    //                 appType: ""
+    //             }
+    //         } else if (config.method == 'get') {
+    //             config.params = {
+    //                 data: config.data,
+    //                 timestamp: Date.parse(new Date()) / 1000,
+    //                 token: store.state.admin.token,
+    //                 appCode: store.state.admin.platform,
+    //                 version: store.state.admin.version,
+    //                 appType: ""
+    //             }
+    //         }
+    //         // config.data = Qs.stringify(config.data);
+    //         return config
+    //     },
+    //     function(error) {
+    //         return Promise.reject(error)
+    //     }
+    // )
      // request 添加请求拦截器 
      axios.interceptors.request.use(
         config => {
