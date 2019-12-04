@@ -4,7 +4,6 @@
 import App from './App';
 import router from './router';
 import store from './store';
-import axios from 'axios';
 
 // Element-ui
 import ElementUI from 'element-ui';  //加载优化
