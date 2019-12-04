@@ -4,6 +4,7 @@
 import App from './App';
 import router from './router';
 import store from './store';
+import axios from 'axios';
 
 // Element-ui
 import ElementUI from 'element-ui';  //加载优化
@@ -40,6 +41,7 @@ const whiteList = ['/login','/404'];
 // });
 // removeAuthInfo();
 // router global config
+
 
 //取消请求的对象
 window.cancleSource={};
