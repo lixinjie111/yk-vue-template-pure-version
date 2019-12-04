@@ -99,9 +99,9 @@ export default {
                     // 正则校验
                     this.submitloading = true;
                     let _param = Object.assign({}, this.formParams, {
-                        password: md5(this.formParams.password),
-                        newpassword: md5(this.formParams.newpassword),
-                        confirmpassword: md5(this.formParams.confirmpassword)
+                        password: md5(md5(this.formParams.password)),
+                        newpassword: md5(md5(this.formParams.newpassword)),
+                        confirmpassword: md5(md5(this.formParams.confirmpassword))
                     });
                     requestPasswd(_param).then(res => {
                     // requestPasswd(this.formParams).then(res => {
