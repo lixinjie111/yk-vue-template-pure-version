@@ -16,11 +16,11 @@ export const requestPasswd = params => { return axios.post(`${HTTPURL}openApi/us
 /**
  * 获取滑块位置
  */
-export const requestCreateCode = params => { return axios.post(`${OPERATEURL}openApi/user/createCode`, params).then(res => res.data); };
+export const requestCreateCode = params => { return axios.post(`${HTTPURL}openApi/user/createCode`, params).then(res => res.data); };
 /**
  * 滑动校验
  */
-export const requestAuthCode = params => { return axios.post(`${OPERATEURL}openApi/user/authCode`, params).then(res => res.data); };
+export const requestAuthCode = params => { return axios.post(`${HTTPURL}openApi/user/authCode`, params).then(res => res.data); };
 
 
 /**

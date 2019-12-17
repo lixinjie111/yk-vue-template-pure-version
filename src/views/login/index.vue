@@ -68,6 +68,7 @@ export default {
             }
         };
         return {
+            dragFlag:false,
             visibleFlag: false,
             loginForm: {
                 userNo: '',
