@@ -10,7 +10,7 @@
                 <i class="icon iconfont el-icon-mc-yonghuzhongxin_f c-vertical-middle"></i>
                 <em class="name c-vertical-middle">{{sysAdminName}}</em>
             </span>
-            <el-dropdown-menu slot="dropdown">
+            <el-dropdown-menu slot="dropdown" class="c-header-dropdown">
                 <el-dropdown-item divided>版本V{{version}}</el-dropdown-item>
                 <el-dropdown-item divided @click.native="resetPassword">修改密码</el-dropdown-item>
                 <el-dropdown-item divided @click.native="logout">登出</el-dropdown-item>
