@@ -13,7 +13,7 @@
             <el-dropdown-menu slot="dropdown" class="c-header-dropdown">
                 <el-dropdown-item divided>版本V{{version}}</el-dropdown-item>
                 <el-dropdown-item divided @click.native="resetPassword">修改密码</el-dropdown-item>
-                <el-dropdown-item divided @click.native="logout">登出</el-dropdown-item>
+                <el-dropdown-item divided @click.native="logout">退出</el-dropdown-item>
             </el-dropdown-menu>
         </el-dropdown>
     </div>
