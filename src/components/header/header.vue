@@ -11,7 +11,7 @@
                 <em class="name c-vertical-middle">{{sysAdminName}}</em>
             </span>
             <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item divided>版本v1.0</el-dropdown-item>
+                <el-dropdown-item divided>版本V{{version}}</el-dropdown-item>
                 <el-dropdown-item divided @click.native="resetPassword">修改密码</el-dropdown-item>
                 <el-dropdown-item divided @click.native="logout">登出</el-dropdown-item>
             </el-dropdown-menu>
@@ -33,7 +33,8 @@ export default {
     data() {
         return {
             dialogResetPasswordFlag: false,
-            sysAdminName: this.$store.state.admin.adminName
+            sysAdminName: this.$store.state.admin.adminName,
+            version: window.config.version
         }
     },
     methods: {
