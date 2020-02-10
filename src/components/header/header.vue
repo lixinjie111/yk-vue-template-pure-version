@@ -2,7 +2,7 @@
 <div id="header">
     <div class="logo">
         <img src="static/images/logo.png" class="logo-img"/>
-        <em class="name">管理后台模板</em>
+        <em class="name">管理平台模板</em>
     </div>
     <div class="userinfo">
         <el-dropdown trigger="hover">
