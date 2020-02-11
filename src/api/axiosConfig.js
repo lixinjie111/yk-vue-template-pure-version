@@ -75,7 +75,7 @@ function axiosFilter(vm) {
     // response
     axios.interceptors.response.use(response => {
         let returnStatus = response.data.status,
-            returnMessage = response.data.message || '操作失败！'
+            returnMessage = response.data.message;
         switch (returnStatus.toString()) {
             case '200': {
                 return Promise.resolve(response);
@@ -84,7 +84,7 @@ function axiosFilter(vm) {
             case '808': {   // 登录失效
                 if(isOutLogin) {
                     isOutLogin = false;
-                    vm.$confirm(response.data.message, '提示', {
+                    vm.$confirm(returnMessage, '提示', {
                         confirmButtonText: '确定',
                         cancelButtonText: '取消',
                         type: 'warning'
@@ -99,12 +99,14 @@ function axiosFilter(vm) {
             }
             default: {
                 // vm.$message.error(response.data.message);
-                vm.$message({
-                    type: 'error',
-                    duration: '1500',
-                    message: response.data.message,
-                    showClose: true
-                });
+                if(returnMessage) {
+                    vm.$message({
+                        type: 'error',
+                        duration: '1500',
+                        message: response.data.message,
+                        showClose: true
+                    });
+                }
                 return Promise.resolve(response);
             }
         }
