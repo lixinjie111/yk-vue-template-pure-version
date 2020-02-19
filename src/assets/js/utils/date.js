@@ -80,18 +80,5 @@ class TDate {
         var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0
         return y+"-"+m+"-"+d + " " + dd.getHours() + ":" + dd.getMinutes() + ":" + dd.getSeconds(); 
     }
-    // static formatTime(value){
-    //     if(value == ''){
-    //         return;
-    //     }
-    //     let tDate = value ? new Date(value) : new Date();
-    //     const year = tDate.getFullYear();
-    //     const month = this.formatNum(tDate.getMonth() + 1);
-    //     const day = this.formatNum(tDate.getDate());
-    //     const hour = this.formatNum(tDate.getHours());
-    //     const minutes = this.formatNum(tDate.getMinutes());
-    //     const seconds = this.formatNum(tDate.getSeconds());
-    //     return year + '-' + month + '-' + day + ' ' + hour + ':' + minutes + ':' + seconds;
-    // }
 }
 export default TDate;
